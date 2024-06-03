@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href=https://waph-uc.github.io/style1.css>
+<style>
+    .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    .round {border-radius: 8px;}
+    #response {background-color: #ff9800;} /* Orange */
+</style>    
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>    
+<head>
+<meta charset="utf-8">
+<title>WAPH-Brandon Hillard</title>
+</head>
+<body>
+<div class="container wrapper">
+    <div id="top">
+        <h1>Web Application Programming and Hacking</h1>
+        <h2>Front-end Web Development Lab</h2>
+        <h3>Instructor: Dr. Phu Phung</h3>
+    </div>
+    <div class="wrapper">
+        <div id="menubar">
+            <h3>Student: Brandon Hillard</h3>
+            <div id="email" onclick="showhideEmail()">Show my email</div>
+            <script src="email.js"></script>
+            <img src="images/UC_portraits_2022-1259.jpg" alt="My headshot" width="50">
+            <div id="digit-clock"></div>
+            <canvas id="analog-clock" width="150" height="150" style="background-color: #999;"></canvas>
+            <script src="https://waph-uc.github.io/clock.js"></script>
+            <script>
+
+            //Analog Clock Code
+            var canvas = document.getElementById("analog-clock");
+            var ctx = canvas.getContext("2d");
+            var radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+            radius = radius * 0.90
+            setInterval(drawClock, 1000);
+
+            function drawClock() {
+                drawFace(ctx, radius);
+                drawNumbers(ctx, radius);
+                drawTime(ctx, radius);
+            }
+            
+            //JS Time Display
+            function displayTime() {
+                document.getElementById('digit-clock').innerHTML = "Current time: " + new Date();
+            }
+            setInterval(displayTime, 500);
+            
+            //Ajax ready state function
+            /*function ajax_demo(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    //test 1:
+                    alert("readyState=" + this.readyState + ", status=" + this.status + ", statusText=" + this.statustext);
+                }
+            }*/
+
+            //Ajax echo function
+            function getEcho() {
+                var input = encodeInput(document.getElementById("data").value);
+                if(input.length == 0) {
+                    return;
+                }
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log("Received data="+xhttp.responseText);
+                        document.getElementById("response").innerText="Response from server:" + xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", "echo.php?data="+input, true); //code to send the Ajax request
+                xhttp.send(); //send the request
+                document.getElementById("data").value = "";
+            }
+
+            //jQuery Ajax request GET
+            function jQueryAjax() {
+                var input = encodeInput($("#data").val());
+                if (input.length == 0) return;
+                $.get("echo.php?data="+input, function(result) {
+                    $("#response").html("Response from server:" + result);
+                });
+                $("#data").val("");
+            }
+
+            //jQuery Ajax request POST
+            function jQueryAjaxPost() {
+                var input = encodeInput($("#data").val());
+                if (input.length == 0) return;
+                $.post("echo.php",{data: input}, function( result ) {
+                    $("#response").html("Response from server:" + result);
+                });
+                $("#data").val("");
+            }
+
+            //Joke API integration
+            $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function(result) {
+                console.log("From jokeAPI: " + JSON.stringify(result));
+                if(JSON.stringify(result).length || result.joke.length == 0) return;
+                $("#response").html(encodeInput("A programming joke of the day: " + result.joke));
+            })
+
+            //Guess Age API integration
+            async function guessAge(name) {
+                const response = await fetch("https://api.agify.io/?name="+name);
+                const result = await response.json();
+                if(result.length == 0) return;
+                $("#response").html(encodeInput("Hi " + name + ", your age should be " + result.age));
+            }
+
+            function encodeInput (input) {
+                const encoded = document.createElement('div');
+                encoded.innerText = input;
+                return encoded.innerHTML;
+            }
+            </script>
+        </div>
+
+        <div id="main">
+            <p>A simple HTML page </p>
+            Using the <a href="https:www.w3schools.com/html"> W3Schools template</a>
+            <hr>
+            <b>Interaction with forms</b>
+            <div>
+                <i>Form with an HTTP GET Request</i>
+                <form action="/echo.php" method="GET">
+                    Your input: <input name="data">
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+            <div>
+                <i>Form with an HTTP POST Request</i>
+                <form action="/echo.php" method="POST" name="echo_post">
+                    Your input: 
+                    <input name="data"
+                        onkeypress="console.log('You have pressed a key')">
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+            <div>
+                <i>Ajax requests</i><br>
+                Your input:
+                <input name="data" onkeypress="console.log('You have pressed a key')" id="data">
+                <input class="button round" type="button" value="Ajax Echo" onclick="getEcho()">
+                <input class="button round" type="button" value="jQuery Ajax GET Echo" onclick="jQueryAjax()">
+                <input class="button round" type="button" value="jQuery Ajax POST Echo" onclick="jQueryAjaxPost()">
+                <input class="button round" type="button" value="Guess Age" onclick="guessAge($('#data').val())">
+                <div id="response"></div>
+            </div>
+            <hr>
+            <b>Experiments with JavaScript code</b><br>
+            <i>Inlined JavaScript</i>
+            <div id="date" onclick="document.getElementById('date').innerHTML= Date()">Click here to show Date()</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
