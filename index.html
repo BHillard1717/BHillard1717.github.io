@@ -218,12 +218,12 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
-        //other code
         if (document.cookie.indexOf("lastVisit") < 0){
         document.cookie = "lastVisit="+ new Date();
         alert('Welcome to my homepage! Thank you for visiting!');
         }else
         alert("Welcome back! Your last visit was " + document.cookie.replace('lastVisit=', ''));
+        document.cookie = "lastVisit="+ new Date();
         </script>
     </body>
 </html>

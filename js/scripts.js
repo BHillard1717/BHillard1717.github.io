@@ -53,9 +53,10 @@ function joke_call() {
 }
 joke_call();
 setInterval(joke_call, 60000);
+
 //Pokemon Sprite call
 async function getPokemon() {
-    rand_poke = Math.floor(Math.random() * 1025);
+    rand_poke = Math.floor((Math.random() * 1024) + 1);
     const response = await fetch("https://pokeapi.co/api/v2/pokemon/"+rand_poke);
     const result = await response.json();
     if(result.length == 0) return;
