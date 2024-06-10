@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Brandon Hillard - Projects</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/platypus.png" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Brandon Hillard</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume & Skills</a></li>
+                            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Projects Section-->
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <!-- Project Card 1-->
+                            <a style="text-decoration: none; color: black;" href="waph-hillarbp.html">
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Web Application Programming and Hacking</h2>
+                                            <p>Here you can find an updated page of any labs/hackathons/projects that I have worked on throughout the Summer 2024 semester in my WAPH class, check it out! </p>
+                                        </div>
+                                        <img class="img-fluid" src="assets/waph-logo.png" alt="..." style="height: 60%; width: 60%;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            <!-- Project Card 2-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Embedding a simple Vue Component</h2>
+                                            <p id="app">{{ message }}</p>
+                                        </div>
+                                        <img class="img-fluid" src="assets/vue-logo.png" alt="..." style="height: 50%; width: 50%;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Project Card 3-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Incorporating an Analog Clock</h2>
+                                            <p>Here is a JavaScript intergrated analog clock!</p>
+                                        </div>
+                                        <canvas id="analog-clock" width="150" height="150" style="background-color: #999;"></canvas>
+                                        <script src="https://waph-uc.github.io/clock.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Project Card 3-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">How about a programming joke? <br>(Refreshes every minute!)</h2>
+                                            <p>Disclaimer: public/third-party services are used in this section and I am not responsible for the content generated.</p>
+                                            <p id="joke_response"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Project Card 3-->
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">How about a random Pokemon Sprite? <br>(Refreshes ~10 seconds!)</h2>
+                                            <p>Disclaimer: public/third-party services are used in this section and I am not responsible for the content generated.</p>
+                                        </div>
+                                        <img class="img-fluid" id="poke_response" src="/assets/favicon.ico" alt="..." />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Call to action section-->
+            <section class="py-5 bg-gradient-primary-to-secondary text-white">
+                <div class="container px-5 my-5">
+                    <div class="text-center">
+                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; BHillard1717.github.io 2024</div></div>
+                    <div class="col-auto">
+                        <a id="email" onclick="showhideEmail()" class="small">Show Email</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://www.flaticon.com/free-icons/platypus" title="platypus icons">Platypus icons created by Freepik - Flaticon</a>
+                    </div>
+                    <div class="col-auto">
+                        <div class="small m-0" id="digit-clock"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            const { createApp, ref } = Vue
+          
+            createApp({
+              setup() {
+                const message = ref('As an exercise, a simple vue component is embedded here containing this exact text!')
+                return {
+                  message
+                }
+              }
+            }).mount('#app')
+        </script>
+    </body>
+</html>
